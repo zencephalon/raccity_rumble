@@ -2,9 +2,18 @@
   background-image: url('../img/protag_standing.gif');
   width: 245px;
   height: 130px;
+  position: absolute;
 }
 
 #arena {
   border-color: black;
   border-style: solid;
+  position: relative;
+}
+
+.bullet {
+  background-image: url('../img/shuriken.gif');
+  height: 16px;
+  width: 16px;
+  position: absolute;
 }
