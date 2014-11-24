@@ -1,20 +1,9 @@
-function Arena(height, width) {
-  this.height = height;
-  this.width = width;
-  this.$element = $('<div id="arena"></div>');
-  this.$element.css('height', height);
-  this.$element.css('width', width);
-  $('body').append(this.$element);
-}
-
-
 function Raccoon(x, y, arena) {
   this.arena = arena;
   this.x = x;
   this.y = y;
   this.dir = "none";
   this.$sprite = $('<div id="good_raccoon"></div>');
-  this.$sprite.css('position', 'relative');
   $('#arena').append(this.$sprite);
   this.height = this.$sprite.height();
   this.width = this.$sprite.width();
@@ -56,16 +45,3 @@ Raccoon.prototype.move = function() {
   }
   this.updateSpritePosition();
 }
-
-$(document).ready(function() {
-  arena = new Arena(600, 1200);
-  raccoon = new Raccoon(300, 300, arena);
-
-  ['down', 'up', 'left', 'right', 'space'].forEach(function(dir) {
-    Mousetrap.bind(dir, function(event) {
-      raccoon.setDirection(dir);
-    })
-  });
-
-  setInterval(function() { raccoon.move() }, 20);
-})
