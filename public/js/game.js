@@ -18,6 +18,10 @@ $(document).ready(function() {
     raccoon.move();
     bullets.forEach(function(bullet) {
       bullet.move();
-    })
+      if (bullet.collided) {
+        bullet.destroy();
+      }
+    });
+    bullets = _(bullets).reject(function(bullet) { return bullet.collided });
   }, 20);
 })

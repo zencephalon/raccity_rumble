@@ -42,6 +42,7 @@ Raccoon.prototype.move = function() {
       ((this.x + this.width / 2) > this.arena.width)) {
     this.x = old_x;
     this.y = old_y;
+    this.collided = true;
   }
   this.updateSpritePosition();
 }

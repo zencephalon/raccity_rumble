@@ -11,3 +11,7 @@ function Bullet(x, y, direction, arena) {
 
 Bullet.prototype.updateSpritePosition = Raccoon.prototype.updateSpritePosition;
 Bullet.prototype.move = Raccoon.prototype.move;
+
+Bullet.prototype.destroy = function() {
+  this.$sprite.remove();
+}
