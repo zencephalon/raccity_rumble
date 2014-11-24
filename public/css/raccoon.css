@@ -3,3 +3,8 @@
   width: 245px;
   height: 130px;
 }
+
+#arena {
+  border-color: black;
+  border-style: solid;
+}
