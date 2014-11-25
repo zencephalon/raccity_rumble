@@ -2,6 +2,7 @@ $(document).ready(function() {
   arena = new Arena(600, 1200);
   raccoon = new Raccoon(300, 300, arena);
   bullets = [];
+  enemies = [new Enemy(arena), new Enemy(arena), new Enemy(arena)];
 
   ['down', 'up', 'left', 'right'].forEach(function(dir) {
     Mousetrap.bind(dir, function(event) {
@@ -16,6 +17,9 @@ $(document).ready(function() {
 
   setInterval(function() { 
     raccoon.move();
+    enemies.forEach(function(enemy) {
+      enemy.move();
+    });
     bullets.forEach(function(bullet) {
       bullet.move();
       if (bullet.collided) {

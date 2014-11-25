@@ -5,6 +5,14 @@
   position: absolute;
 }
 
+#enemy_raccoon {
+  background-image: url('../img/protag_standing.gif');
+  width: 245px;
+  height: 130px;
+  position: absolute;
+  transform: scaleX(-1);
+}
+
 #arena {
   border-color: black;
   border-style: solid;
