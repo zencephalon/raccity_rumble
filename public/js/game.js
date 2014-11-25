@@ -17,15 +17,27 @@ $(document).ready(function() {
 
   setInterval(function() { 
     raccoon.move();
-    enemies.forEach(function(enemy) {
-      enemy.move();
-    });
     bullets.forEach(function(bullet) {
       bullet.move();
+
+      enemies.forEach(function(enemy) {
+        if (enemy.x < bullet.x + bullet.width &&
+         enemy.x + enemy.width > bullet.x &&
+         enemy.y < bullet.y + bullet.height &&
+         enemy.height + enemy.y > bullet.y) {
+          enemy.destroy();
+          enemy.collided = true;
+        }
+      });
+
       if (bullet.collided) {
         bullet.destroy();
       }
     });
+    enemies.forEach(function(enemy) {
+      enemy.move();
+    });
     bullets = _(bullets).reject(function(bullet) { return bullet.collided });
+    enemies = _(enemies).reject(function(enemy) { return enemy.collided });
   }, 20);
 })

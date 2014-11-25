@@ -11,3 +11,4 @@ function Enemy(arena) {
 
 Enemy.prototype.move = Raccoon.prototype.move;
 Enemy.prototype.updateSpritePosition = Raccoon.prototype.updateSpritePosition;
+Enemy.prototype.destroy = Bullet.prototype.destroy;
