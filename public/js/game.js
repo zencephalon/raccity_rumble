@@ -3,6 +3,7 @@ $(document).ready(function() {
   raccoon = new Raccoon(300, 300, arena);
   bullets = [];
   enemies = [new Enemy(arena), new Enemy(arena), new Enemy(arena)];
+  last_spawn_time = Date.now();
 
   ['down', 'up', 'left', 'right'].forEach(function(dir) {
     Mousetrap.bind(dir, function(event) {
@@ -16,6 +17,10 @@ $(document).ready(function() {
   })
 
   setInterval(function() { 
+    if (Date.now() - last_spawn_time > 500) {
+      enemies.push(new Enemy(arena));
+      last_spawn_time = Date.now();
+    }
     raccoon.move();
     bullets.forEach(function(bullet) {
       bullet.move();
